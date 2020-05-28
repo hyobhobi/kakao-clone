@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Nomad Coders" />
+    <meta name="description" content="Welcome to my Kakao Clone" />
+    <title>Box Model</title>
+    <style>
+      body,
+      html {
+        padding: 0;
+        height: 100%;
+      }
+
+      /* 가상 셀렉터 만드는 방법 */
+      /* 클래스명을 지정하지 않고 개별 인풋에 스타일을 설정하고 싶을 때 */
+      input[type="submit"] {
+        background: yellow;
+      }
+      input[required="required"] {
+        background: blue;
+      }
+      /* 인풋태그 전체에 적용할 때 */
+      input {
+        border: 5px solid red;
+      }
+      .box:last-child {
+        background: green;
+        margin-bottom: 30px;
+      }
+      input + .box {
+        background: pink;
+      }
+      span {
+        background: pink;
+        line-height: 100px;
+        font-size: 40px;
+      }
+      .hoverbox:hover {
+        background: red;
+      }
+      .hoverbox:active {
+        background: rebeccapurple;
+      }
+      .textbox {
+        line-height: 40px;
+        font-size: 30px;
+      }
+      .textbox:focus {
+        background: salmon;
+      }
+      /* 트랜지션 적용 */
+      .transbox {
+        display: block;
+        background: green;
+        color: white;
+        transition: all 0.3s ease-in-out;
+      }
+      .transbox:active {
+        background: greenyellow;
+        color: tomato;
+      }
+      .movingbox {
+        width: 500px;
+        height: 500px;
+        background: tomato;
+        color: white;
+        font-size: 40px;
+        text-align: center;
+        line-height: 500px;
+        transition: all 0.5s ease-in-out;
+      }
+      .movingbox:hover {
+        color: yellow;
+        background: red;
+        transform: rotate(45deg);
+      }
+      /* 한방향 애니메이션 */
+      .anibox1 {
+        width: 180px;
+        height: 180px;
+        margin: 20px;
+        background: blue;
+        color: white;
+        font-size: 40px;
+        text-align: center;
+        line-height: 180px;
+        animation: 1.5s scaleAndRotateSquare infinite ease-in-out;
+      }
+      @keyframes scaleAndRotateSquare {
+        from {
+          transform: none;
+        }
+        to {
+          transform: rotate(1turn) scale(0.5, 0.5);
+        }
+      }
+      /* 쌍방향 애니메이션 */
+      .anibox2 {
+        width: 180px;
+        height: 180px;
+        margin: 20px;
+        background: blue;
+        color: white;
+        font-size: 40px;
+        text-align: center;
+        line-height: 180px;
+        animation: 5s replay infinite ease-in-out;
+      }
+      @keyframes replay {
+        0% {
+          transform: none;
+        }
+        50% {
+          transform: rotate(1turn) scale(0.5, 0.5);
+          color: chartreuse;
+          background: crimson;
+        }
+        100% {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="anibox1">야호!!</div>
+      <div class="anibox2">예이!!</div>
+      <div class="movingbox">GoGo!</div>
+      <span class="transbox">text</span>
+      <span class="hoverbox">오예르아라라라라라라랄랄라와랄랄랄라</span>
+      <textarea class="textbox">와라랄라오랄랄라와랄랄랄라</textarea>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box">
+        <input type="password" required="required" />
+        <input type="submit" required="required" />
+      </div>
+    </div>
+  </body>
+</html>
